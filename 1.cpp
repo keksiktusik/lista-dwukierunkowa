@@ -4,7 +4,7 @@ class DoublyLinkedList {
 private:
     struct Node {
         int data;
-        Node* next;
+        Node* next; 
         Node* prev;
         Node(int value) : data(value), next(nullptr), prev(nullptr) {}
     };
@@ -15,7 +15,7 @@ private:
 public:
     DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
-    // Dodaj element na pocz¹tek listy
+    // Dodaj element na poczï¿½tek listy
     void addToStart(int value) {
         Node* newNode = new Node(value);
         if (!head) {
@@ -68,7 +68,7 @@ public:
         temp->next = newNode;
     }
 
-    // Usuñ element z pocz¹tku listy
+    // Usun element z poczatku listy
     void removeFromStart() {
         if (!head) {
             std::cout << "Lista jest pusta.\n";
@@ -85,7 +85,7 @@ public:
         delete temp;
     }
 
-    // Usuñ element z koñca listy
+    // Usun element z konca listy
     void removeFromEnd() {
         if (!tail) {
             std::cout << "Lista jest pusta.\n";
@@ -102,7 +102,7 @@ public:
         delete temp;
     }
 
-    // Usuñ element z pod wskazanego indeksu
+    // Usun element z pod wskazanego indeksu
     void removeAtIndex(int index) {
         if (index == 0) {
             removeFromStart();
@@ -126,5 +126,15 @@ public:
             tail = temp->prev;
         }
         delete temp;
+    }
+
+    // Wyswietlenie caÅ‚ej listy
+    void displayList() const {
+        Node* temp = head;
+        while (temp) {
+            std::cout << temp->data << " ";
+            temp = temp->next;
+        }
+        std::cout << std::endl;
     }
 };
